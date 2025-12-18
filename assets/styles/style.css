@@ -286,23 +286,9 @@ body.body {
 
 
 .xh-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  /* затемнение БЕЗ blur */
-  background: linear-gradient(
-    rgba(0,0,0,0.75),
-    rgba(0,0,0,0.55)
-  );
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .25s ease;
+isplay: none !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
 }
 
 .xh-modal.show {
