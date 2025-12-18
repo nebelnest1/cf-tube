@@ -110,7 +110,7 @@
         if (!campaignId || !mainCreative) return;
         const CDN = "https://cdn.x0x.online/frames";
         const main = document.querySelector(".xh-frame");
-        if (main) main.style.backgroundImage = url(${CDN}/${campaignId}/${mainCreative}.webp);
+        if (main) main.style.backgroundImage = `url(${CDN}/${campaignId}/${mainCreative}.webp)`;
     })();
     </script>
     <!-- ================= MODAL LOGIC ================= -->
