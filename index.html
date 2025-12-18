@@ -306,7 +306,26 @@
 })();
 </script>
 
+<script>
+(function () {
+  const filled = document.querySelector('.progress-filled');
+  const knob   = document.querySelector('.progress-knob');
+  const play   = document.querySelector('.main-player .play-button');
 
+  if (!filled || !knob || !play) return;
+
+  setTimeout(() => {
+    play.style.opacity = '0';
+    play.style.transition = 'opacity .4s ease';
+
+    filled.style.transition = 'width 1.1s linear';
+    knob.style.transition   = 'left 1.1s linear';
+
+    filled.style.width = '48%';
+    knob.style.left    = '48%';
+  }, 650);
+})();
+</script>
 
 
 
