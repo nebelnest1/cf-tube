@@ -15,7 +15,7 @@
         back_count: 3
     };
     </script>
-    <link rel="stylesheet" href="assets/styles/style.css?v=139">
+    <link rel="stylesheet" href="assets/styles/style.css?v=140">
     <script defer src="assets/scripts/common.js?v=138"></script>
 </head>
 <body class="body">
@@ -218,9 +218,7 @@
         }, 650);
     })();
     </script>
-    <script>
-(function () {
-    // Находим или создаём псевдо-элемент с подсказкой
+  (function () {
     const player = document.querySelector('.main-player');
     if (!player) return;
 
@@ -239,7 +237,7 @@
         sv: "▶ Tryck för att fortsätta",
         no: "▶ Trykk for å fortsette",
         da: "▶ Tryk for at fortsætte",
-        ar: "▶ اضغط للمتابعة",           // RTL, но в CSS inset работает нормально
+        ar: "▶ اضغط للمتابعة",
         th: "▶ แตะเพื่อดำเนินการต่อ",
         id: "▶ Ketuk untuk melanjutkan",
         vi: "▶ Chạm để tiếp tục",
@@ -247,23 +245,11 @@
     };
 
     let lang = (navigator.language || "en").toLowerCase().split("-")[0];
-
-    // СНГ → RU
     if (["uk", "be", "kk"].includes(lang)) lang = "ru";
-    // MENA / сложные RTL → EN (кроме ar, который мы поддерживаем)
     if (["fa", "ur"].includes(lang)) lang = "en";
 
-    const text = I18N[lang] || I18N.en;
-
-    // Создаём стиль динамически, чтобы подставить перевод
-    const style = document.createElement('style');
-    style.textContent = `
-        .main-player.is-playing::before {
-            content: "${text}";
-        }
-    `;
-    document.head.appendChild(style);
+    player.style.setProperty('--tap-text', `"${I18N[lang] || I18N.en}"`);
 })();
-</script>
+
 </body>
 </html>
