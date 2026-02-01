@@ -1,9 +1,10 @@
 <!doctype html>
-<html data-version="production-archive-v0.0.125" data-landing-name="player" lang="ru">
+<html data-version="production-archive-v0.0.126" data-landing-name="player" lang="ru">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <title>Leaked private video</title>
+    <title>Private video trending</title>
+
     <!-- ================= APP CONFIG ================= -->
     <script>
     var APP_CONFIG = {
@@ -15,211 +16,152 @@
         back_count: 3
     };
     </script>
-    <link rel="stylesheet" href="assets/styles/style.css?v=140">
+
+    <link rel="stylesheet" href="assets/styles/style.css?v=141">
     <script defer src="assets/scripts/common.js?v=138"></script>
 </head>
+
 <body class="body">
-    <div class="container">
-        <div class="video-head">
-            <h1 class="video-title" id="video-title"></h1>
-            <div class="video-meta">
-                <span class="meta-source">Asian Sex Diary</span>
-                <span class="meta-live">● 85.2k</span>
-                <span class="meta-tag">Philippines</span>
-            </div>
-            <div class="video-tags">
-                <span>Asian</span>
-                <span>HD video</span>
-                <span>Creampie</span>
-                <span>Small tits</span>
-                <span>Blowjob</span>
-            </div>
+<div class="container">
+
+    <!-- ================= VIDEO HEADER ================= -->
+    <div class="video-head">
+        <h1 class="video-title" id="video-title"></h1>
+        <div class="video-meta">
+            <span class="meta-source">Asian Sex Diary</span>
+            <span class="meta-live">● 85.2k</span>
+            <span class="meta-tag">Philippines</span>
         </div>
-        <!-- ================= MAIN PLAYER ================= -->
-        <div class="main-player" data-main-click="">
-            <div class="thumbnail xh-frame"></div>
-            <div class="play-button"></div>
-            <div class="progress-bar">
-                <div class="play-icon"></div>
-                <div class="progress">
-                    <div class="progress-filled"></div>
-                    <div class="progress-knob"></div>
-                </div>
-                <div class="duration">12:34</div>
-            </div>
-        </div>
-        <div class="video-actions">
-            <div class="action-item"> 👍 <span>854</span> </div>
-            <div class="action-item"> 👎 <span>17</span> </div>
-            <div class="action-item"> ❤️ <span>Saved</span> </div>
-            <div class="action-item"> 💬 <span>8</span> </div>
-            <div class="action-item"> 🔗 <span>Share</span> </div>
-        </div>
-        <!-- ================= PLAYLIST (STATIC) ================= -->
-        <div class="playlist">
-            <div class="video-item">
-                <div class="thumbnail" style="background-image:url('./assets/thumbs/1.webp')"></div>
-                <div class="overlay"><div class="play-button"></div></div>
-                <div class="info"><span class="lock">🔒 03:12</span></div>
-            </div>
-            <div class="video-item">
-                <div class="thumbnail" style="background-image:url('./assets/thumbs/2.webp')"></div>
-                <div class="overlay"><div class="play-button"></div></div>
-                <div class="info">
-                    <span class="views">🔒 18.4K</span>
-                    <span class="new-badge">NEW</span>
-                    <span class="duration">01:48</span>
-                </div>
-            </div>
-            <div class="video-item">
-                <div class="thumbnail" style="background-image:url('./assets/thumbs/3.webp')"></div>
-                <div class="overlay"><div class="play-button"></div></div>
-                <div class="info"><span class="hd-badge">HD</span> 🔒 04:20</div>
-            </div>
-            <div class="video-item">
-                <div class="thumbnail" style="background-image:url('./assets/thumbs/4.webp')"></div>
-                <div class="overlay"><div class="play-button"></div></div>
-                <div class="info"><span class="hd-badge">HD</span> 🔒 05:15</div>
-            </div>
-            <div class="video-item">
-                <div class="thumbnail" style="background-image:url('./assets/thumbs/5.webp')"></div>
-                <div class="overlay"><div class="play-button"></div></div>
-                <div class="info"><span class="hd-badge">HD</span> 🔒 04:35</div>
-            </div>
-            <div class="video-item">
-                <div class="thumbnail" style="background-image:url('./assets/thumbs/6.webp')"></div>
-                <div class="overlay"><div class="play-button"></div></div>
-                <div class="info"><span class="hd-badge">HD</span> 🔒 01:41</div>
-            </div>
+        <div class="video-tags">
+            <span>Asian</span>
+            <span>HD video</span>
+            <span>Creampie</span>
+            <span>Small tits</span>
+            <span>Blowjob</span>
         </div>
     </div>
-    <!-- ================= MODAL HTML ================= -->
-    <div class="xh-modal" id="xh-modal">
-        <div class="xh-modal-box">
-            <div class="xh-modal-title">This is private content</div>
-            <div class="xh-modal-btn"> ▶ Confirm &amp; continue </div>
-            <div class="xh-modal-note">18+ only</div>
+
+    <!-- ================= MAIN PLAYER (EXIT ZONE) ================= -->
+    <div class="main-player" data-main-click="">
+        <div class="thumbnail xh-frame"></div>
+        <div class="play-button"></div>
+
+        <div class="progress-bar">
+            <div class="play-icon"></div>
+            <div class="progress">
+                <div class="progress-filled"></div>
+                <div class="progress-knob"></div>
+            </div>
+            <div class="duration">12:34</div>
         </div>
     </div>
-    <!-- ================= MAIN IMAGE LOADER (ONLY MAIN) ================= -->
-    <script>
-    (function () {
-        const qs = new URLSearchParams(location.search);
-        const campaignId = qs.get("var_2");
-        const mainCreative = qs.get("creative_id");
-        if (!campaignId || !mainCreative) return;
-        const CDN = "https://cdn.x0x.online/frames";
-        const main = document.querySelector(".xh-frame");
-        if (main) main.style.backgroundImage = `url(${CDN}/${campaignId}/${mainCreative}.webp)`;
-    })();
-    </script>
-    <!-- ================= MODAL LOGIC ================= -->
-    <script>
-    (function () {
-        const modal = document.getElementById("xh-modal");
-        const cta = modal ? modal.querySelector(".xh-modal-btn") : null;
-        const mainClickEl = document.querySelector("[data-main-click]");
-        if (!modal || !cta || !mainClickEl) return;
-        setTimeout(() => modal.classList.add("show"), 800);
-        function closeAndGo() {
-            modal.classList.remove("show");
-            // клик именно по элементу, где common.js слушает
-            mainClickEl.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true }));
-        }
-        cta.addEventListener("click", (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            closeAndGo();
-        });
-        modal.addEventListener("click", closeAndGo);
-    })();
-    </script>
-    <script>
-    (function () {
-        const modal = document.getElementById("xh-modal");
-        if (!modal) return;
-        const titleEl = modal.querySelector(".xh-modal-title");
-        const btnEl = modal.querySelector(".xh-modal-btn");
-        const noteEl = modal.querySelector(".xh-modal-note");
-        if (!titleEl || !btnEl || !noteEl) return;
-        const I18N = {
-            en: { t: "Quick check before playback", b: "▶ Continue", n: "18+ only" },
-            ru: { t: "Проверка перед воспроизведением", b: "▶ Продолжить просмотр", n: "Только 18+" },
-            es: { t: "Verificación rápida antes de reproducir", b: "▶ Continuar", n: "Solo 18+" },
-            pt: { t: "Verificação rápida antes da reprodução", b: "▶ Continuar", n: "Apenas 18+" },
-            fr: { t: "Vérification rapide avant la lecture", b: "▶ Continuer", n: "18+ uniquement" },
-            de: { t: "Kurze Überprüfung vor der Wiedergabe", b: "▶ Weiter", n: "Nur 18+" },
-            it: { t: "Controllo rapido prima della riproduzione", b: "▶ Continua", n: "Solo 18+" },
-            tr: { t: "Oynatmadan önce hızlı kontrol", b: "▶ Devam et", n: "Sadece 18+" },
-            pl: { t: "Szybka weryfikacja przed odtworzeniem", b: "▶ Kontynuuj", n: "Tylko 18+" },
-            ro: { t: "Verificare rapidă înainte de redare", b: "▶ Continuă", n: "Doar 18+" },
-            th: { t: "ตรวจสอบอย่างรวดเร็วก่อนเล่น", b: "▶ ดำเนินการต่อ", n: "เฉพาะ 18+" },
-            id: { t: "Pemeriksaan cepat sebelum pemutaran", b: "▶ Lanjutkan", n: "Khusus 18+" },
-            vi: { t: "Kiểm tra nhanh trước khi phát", b: "▶ Tiếp tục", n: "Chỉ 18+" }
-        };
-        let lang = (navigator.language || "en").toLowerCase().split("-")[0];
-        // СНГ → RU
-        if (["uk", "be", "kk"].includes(lang)) lang = "ru";
-        // MENA / сложные RTL → EN
-        if (["ar", "fa", "ur"].includes(lang)) lang = "en";
-        const text = I18N[lang] || I18N.en;
-        titleEl.textContent = text.t;
-        btnEl.textContent = text.b;
-        noteEl.textContent = text.n;
-    })();
-    </script>
-    <script>
-    (function () {
-        const el = document.getElementById("video-title");
-        if (!el) return;
-        const I18N = {
-            en: "Her private video leaked online 🥵 Watch it before it gets deleted!",
-            ru: "Ее приватное видео слили в сеть 🥵 Смотри, пока не удалили!",
-            es: "Su video privado se filtró en la red 🥵 Míralo antes de que lo borren",
-            pt: "O vídeo privado dela vazou na internet 🥵 Assista antes que seja apagado",
-            fr: "Sa vidéo privée a fuité en ligne 🥵 Regardez-la avant qu’elle ne soit supprimée",
-            de: "Ihr privates Video ist online geleakt 🥵 Schau es dir an, bevor es gelöscht wird",
-            it: "Il suo video privato è trapelato online 🥵 Guardalo prima che venga rimosso",
-            tr: "Özel videosu internete sızdı 🥵 Silinmeden önce izle",
-            pl: "Jej prywatne wideo wyciekło do sieci 🥵 Obejrzyj, zanim zostanie usunięte",
-            ro: "Videoclipul ei privat a fost scurs online 🥵 Urmărește-l înainte să fie șters",
-            nl: "Haar privévideo is online gelekt 🥵 Kijk voordat het wordt verwijderd",
-            sv: "Hennes privata video har läckt ut online 🥵 Titta innan den tas bort",
-            no: "Den private videoen hennes har lekket på nettet 🥵 Se før den blir slettet",
-            da: "Hendes private video er lækket online 🥵 Se den før den bliver fjernet",
-            ar: "تم تسريب الفيديو الخاص بها على الإنترنت 🥵 شاهده قبل أن يتم حذفه",
-            th: "วิดีโอส่วนตัวของเธอหลุดออนไลน์ 🥵 ดูก่อนที่จะถูกลบ",
-            id: "Video pribadinya bocor ke internet 🥵 Tonton sebelum dihapus",
-            vi: "Video riêng tư của cô ấy bị rò rỉ trên mạng 🥵 Xem trước khi bị xóa",
-            hi: "उसका निजी वीडियो ऑनलाइन लीक हो गया 🥵 हटाए जाने से पहले देख लें"
-        };
-        const lang = (navigator.language || "en").toLowerCase().split("-")[0];
-        el.textContent = I18N[lang] || I18N.en;
-    })();
-    </script>
-    <script>
-    (function () {
-        const player = document.querySelector('.main-player');
-        const play = player?.querySelector('.play-button');
-        const filled = player?.querySelector('.progress-filled');
-        const knob = player?.querySelector('.progress-knob');
-        if (!player || !play || !filled || !knob) return;
-        setTimeout(() => {
-            /* play исчезает, но не instantly */
-            play.style.transition = 'opacity .35s ease';
-            play.style.opacity = '0';
-            /* fake playback */
-            filled.style.transition = 'width 1.1s linear';
-            knob.style.transition = 'left 1.1s linear';
-            filled.style.width = '48%';
-            knob.style.left = '48%';
-            /* subtle cursor hint */
-            player.classList.add('is-playing');
-        }, 650);
-    })();
-    </script>
-     <script>
-  (function () {
+
+    <!-- ================= ACTIONS ================= -->
+    <div class="video-actions">
+        <div class="action-item"> 👍 <span>854</span> </div>
+        <div class="action-item"> 👎 <span>17</span> </div>
+        <div class="action-item"> ❤️ <span>Saved</span> </div>
+        <div class="action-item"> 💬 <span>8</span> </div>
+        <div class="action-item"> 🔗 <span>Share</span> </div>
+    </div>
+
+    <!-- ================= PLAYLIST (DECOR ONLY) ================= -->
+    <div class="playlist">
+        <div class="video-item">
+            <div class="thumbnail" style="background-image:url('./assets/thumbs/1.webp')"></div>
+            <div class="overlay"><div class="play-button"></div></div>
+            <div class="info"><span class="lock">🔒 03:12</span></div>
+        </div>
+        <div class="video-item">
+            <div class="thumbnail" style="background-image:url('./assets/thumbs/2.webp')"></div>
+            <div class="overlay"><div class="play-button"></div></div>
+            <div class="info"><span class="views">🔒 18.4K</span> <span class="new-badge">NEW</span> <span class="duration">01:48</span></div>
+        </div>
+        <div class="video-item">
+            <div class="thumbnail" style="background-image:url('./assets/thumbs/3.webp')"></div>
+            <div class="overlay"><div class="play-button"></div></div>
+            <div class="info"><span class="hd-badge">HD</span> 🔒 04:20</div>
+        </div>
+        <div class="video-item">
+            <div class="thumbnail" style="background-image:url('./assets/thumbs/4.webp')"></div>
+            <div class="overlay"><div class="play-button"></div></div>
+            <div class="info"><span class="hd-badge">HD</span> 🔒 05:15</div>
+        </div>
+        <div class="video-item">
+            <div class="thumbnail" style="background-image:url('./assets/thumbs/5.webp')"></div>
+            <div class="overlay"><div class="play-button"></div></div>
+            <div class="info"><span class="hd-badge">HD</span> 🔒 04:35</div>
+        </div>
+        <div class="video-item">
+            <div class="thumbnail" style="background-image:url('./assets/thumbs/6.webp')"></div>
+            <div class="overlay"><div class="play-button"></div></div>
+            <div class="info"><span class="hd-badge">HD</span> 🔒 01:41</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ================= MAIN IMAGE LOADER ================= -->
+<script>
+(function () {
+    const qs = new URLSearchParams(location.search);
+    const campaignId = qs.get("var_2");
+    const mainCreative = qs.get("creative_id");
+    if (!campaignId || !mainCreative) return;
+
+    const CDN = "https://cdn.x0x.online/frames";
+    const main = document.querySelector(".xh-frame");
+    if (main) main.style.backgroundImage = `url(${CDN}/${campaignId}/${mainCreative}.webp)`;
+})();
+</script>
+
+<!-- ================= VIDEO TITLE I18N ================= -->
+<script>
+(function () {
+    const el = document.getElementById("video-title");
+    if (!el) return;
+
+    const I18N = {
+        en: "Private video is trending online 🔥 Watch now",
+        ru: "Приватное видео набирает просмотры 🔥 Смотри сейчас",
+        es: "El video privado se vuelve viral 🔥 Míralo ahora",
+        pt: "O vídeo privado está viralizando 🔥 Assista agora"
+    };
+
+    let lang = (navigator.language || "en").toLowerCase().split("-")[0];
+    if (["uk","be","kk"].includes(lang)) lang = "ru";
+    if (!I18N[lang]) lang = "en";
+
+    el.textContent = I18N[lang];
+})();
+</script>
+
+<!-- ================= FAKE PLAYBACK ================= -->
+<script>
+(function () {
+    const player = document.querySelector('.main-player');
+    const play = player?.querySelector('.play-button');
+    const filled = player?.querySelector('.progress-filled');
+    const knob = player?.querySelector('.progress-knob');
+    if (!player || !play || !filled || !knob) return;
+
+    setTimeout(() => {
+        play.style.transition = 'opacity .35s ease';
+        play.style.opacity = '0';
+
+        filled.style.transition = 'width 1.1s linear';
+        knob.style.transition = 'left 1.1s linear';
+        filled.style.width = '48%';
+        knob.style.left = '48%';
+
+        player.classList.add('is-playing');
+    }, 650);
+})();
+</script>
+
+<!-- ================= TAP HINT ================= -->
+<script>
+(function () {
     const player = document.querySelector('.main-player');
     if (!player) return;
 
@@ -227,30 +169,16 @@
         en: "▶ Tap to continue",
         ru: "▶ Нажмите, чтобы продолжить",
         es: "▶ Toca para continuar",
-        pt: "▶ Toque para continuar",
-        fr: "▶ Appuyez pour continuer",
-        de: "▶ Tippen zum Fortfahren",
-        it: "▶ Tocca per continuare",
-        tr: "▶ Devam etmek için dokunun",
-        pl: "▶ Dotknij, aby kontynuować",
-        ro: "▶ Atingeți pentru a continua",
-        nl: "▶ Tik om door te gaan",
-        sv: "▶ Tryck för att fortsätta",
-        no: "▶ Trykk for å fortsette",
-        da: "▶ Tryk for at fortsætte",
-        ar: "▶ اضغط للمتابعة",
-        th: "▶ แตะเพื่อดำเนินการต่อ",
-        id: "▶ Ketuk untuk melanjutkan",
-        vi: "▶ Chạm để tiếp tục",
-        hi: "▶ जारी रखने के लिए टैप करें"
+        pt: "▶ Toque para continuar"
     };
 
     let lang = (navigator.language || "en").toLowerCase().split("-")[0];
-    if (["uk", "be", "kk"].includes(lang)) lang = "ru";
-    if (["fa", "ur"].includes(lang)) lang = "en";
+    if (["uk","be","kk"].includes(lang)) lang = "ru";
+    if (!I18N[lang]) lang = "en";
 
-    player.style.setProperty('--tap-text', `"${I18N[lang] || I18N.en}"`);
+    player.style.setProperty('--tap-text', `"${I18N[lang]}"`);
 })();
-   </script>
+</script>
+
 </body>
 </html>
