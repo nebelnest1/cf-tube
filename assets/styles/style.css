@@ -81,7 +81,7 @@ body.body {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient( circle at 50% 40%, rgba(255,255,255,0.06), transparent 60% );
+    background: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.06), transparent 60%);
     opacity: 0;
     animation: playerGlow 3.6s infinite;
     pointer-events: none;
@@ -120,7 +120,7 @@ body.body {
     animation: playPulse 2.8s infinite;
 }
 
-/* мягкий, нативный пульс */
+/* play pulse */
 @keyframes playPulse {
     0% {
         transform: scale(1);
@@ -239,7 +239,6 @@ body.body {
     gap: 14px;
 }
 
-/* card */
 .video-item {
     position: relative;
     aspect-ratio: 16 / 9;
@@ -263,7 +262,6 @@ body.body {
     background: #111 center / cover no-repeat;
 }
 
-/* overlay */
 .video-item .overlay {
     position: absolute;
     inset: 0;
@@ -277,7 +275,6 @@ body.body {
     );
 }
 
-/* play small */
 .video-item .overlay .play-button {
     width: 56px;
     height: 56px;
@@ -297,7 +294,6 @@ body.body {
     border-bottom: 9px solid transparent;
 }
 
-/* info badges */
 .info {
     position: absolute;
     left: 8px;
@@ -325,88 +321,75 @@ body.body {
     font-weight: 800;
 }
 
-/* ========================= VIDEO DESCRIPTION ========================= */
-.video-description {
-    padding: 14px 16px 10px;
-    font-size: 14px;
-    line-height: 1.35;
-    font-weight: 500;
-    color: rgba(255,255,255,0.95);
-    text-shadow: 0 1px 6px rgba(0,0,0,0.6);
-}
-
-/* ========================= MODAL (HIDDEN) ========================= */
-.xh-modal {
-    display: none !important;
-    pointer-events: none !important;
-    opacity: 0 !important;
-}
-
+/* ========================= FAKE PLAY STATE ========================= */
 .main-player.is-playing::before {
     content: var(--tap-text);
     position: absolute;
     inset: 0;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     font-size: 13px;
     font-weight: 600;
     color: rgba(255,255,255,0.85);
-
-    background: radial-gradient(
-        circle at center,
-        rgba(0,0,0,0.25),
-        rgba(0,0,0,0.55)
-    );
-
+    background: radial-gradient(circle at center, rgba(0,0,0,0.25), rgba(0,0,0,0.55));
     opacity: 0;
     animation: tapHint 2.6s infinite;
     pointer-events: none;
     z-index: 3;
 }
+
 @keyframes tapHint {
     0% { opacity: 0; }
     40% { opacity: 0.55; }
     70% { opacity: 0.35; }
     100% { opacity: 0; }
 }
+
 .main-player.is-playing .thumbnail {
-  animation: fakeVideoMotion 3.4s infinite linear;
-  will-change: transform;
+    animation: fakeVideoMotion 3.4s infinite linear;
+    will-change: transform;
 }
 
 @keyframes fakeVideoMotion {
-  0%   { transform: scale(1) translate(0, 0); }
-  20%  { transform: scale(1.01) translate(-1px, 0); }
-  45%  { transform: scale(1.015) translate(1px, -1px); }
-  70%  { transform: scale(1.01) translate(0, 1px); }
-  100% { transform: scale(1) translate(0, 0); }
+    0% { transform: scale(1) translate(0, 0); }
+    20% { transform: scale(1.01) translate(-1px, 0); }
+    45% { transform: scale(1.015) translate(1px, -1px); }
+    70% { transform: scale(1.01) translate(0, 1px); }
+    100% { transform: scale(1) translate(0, 0); }
 }
+
 .main-player.is-playing::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml;utf8,\
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,\
 <svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'>\
 <filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter>\
 <rect width='120' height='120' filter='url(%23n)' opacity='0.045'/>\
 </svg>");
-  animation: noiseShift 0.6s infinite;
-  pointer-events: none;
+    animation: noiseShift 0.6s infinite;
+    pointer-events: none;
 }
 
 @keyframes noiseShift {
-  0%   { transform: translate(0,0); }
-  50%  { transform: translate(-1px,1px); }
-  100% { transform: translate(0,0); }
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-1px,1px); }
+    100% { transform: translate(0,0); }
 }
+
 .main-player.is-playing .play-button {
-  opacity: 0;
+    opacity: 0;
 }
 
 .main-player.is-playing .play-button::after {
-  opacity: 0.25;
-  filter: blur(1px);
+    opacity: 0.25;
+    filter: blur(1px);
+}
+
+/* ========================= POP TUBE FIX ========================= */
+.playlist,
+.video-item,
+.video-item * {
+    pointer-events: none;
 }
